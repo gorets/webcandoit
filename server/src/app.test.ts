@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import request from 'supertest';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import * as webpush from 'web-push';
+import webpush from 'web-push';
 import { createApp } from './app.js';
 import { createPushStore } from './push.js';
 
@@ -16,8 +16,10 @@ vi.mock('web-push', () => {
     }
   }
   return {
-    sendNotification: vi.fn(),
-    WebPushError,
+    default: {
+      sendNotification: vi.fn(),
+      WebPushError,
+    },
   };
 });
 

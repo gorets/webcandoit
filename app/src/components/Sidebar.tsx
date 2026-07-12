@@ -71,6 +71,9 @@ export function Sidebar({ open, onClose }: SidebarProps) {
             </li>
           ))}
         </ul>
+        <p className="sidebar-build">
+          {__APP_COMMIT__} · built {__BUILD_DATE__}
+        </p>
       </nav>
     </>
   );

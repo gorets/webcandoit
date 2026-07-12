@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express';
-import * as webpush from 'web-push';
+import webpush from 'web-push';
 import { createPushStore, isPushConfigured } from './push.js';
 
 const moduleDir = path.dirname(fileURLToPath(import.meta.url));
@@ -92,6 +92,7 @@ export function createApp(options: CreateAppOptions = {}) {
         res.status(410).json({ error: 'Subscription expired — please subscribe again.' });
         return;
       }
+      console.error('Failed to send push notification:', err);
       res.status(502).json({ error: 'Failed to send push notification.' });
     }
   });

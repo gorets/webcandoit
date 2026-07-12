@@ -6,6 +6,9 @@ services:
     restart: unless-stopped
     ports:
       - '127.0.0.1:18080:8080'
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     environment:
       - PORT=8080
       - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY:-}

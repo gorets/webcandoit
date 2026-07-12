@@ -102,6 +102,15 @@
   outline-offset: 2px;
 }
 
+.sidebar-build {
+  margin: 0.75rem 0.6rem 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
 .sidebar-scrim {
   display: none;
 }
