@@ -1,0 +1,127 @@
+.code-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #fbfbfc;
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.code-block-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.code-block-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  color: var(--text-dim);
+  padding: 0.25rem;
+  margin-right: 0.15rem;
+}
+
+.code-block-toggle:hover {
+  background: none;
+  color: var(--accent);
+}
+
+.code-block-chevron {
+  transition: transform 150ms ease;
+}
+
+.code-block-chevron-open {
+  transform: rotate(90deg);
+}
+
+.code-block-tab {
+  background: none;
+  color: var(--text-dim);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.code-block-tab:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.code-block-tab-active,
+.code-block-tab-active:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.code-block-copy {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+}
+
+.code-block-copy:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.code-block-pre {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.code-block-pre .token.comment {
+  color: #8a94a6;
+  font-style: italic;
+}
+
+.code-block-pre .token.keyword {
+  color: #9333ea;
+}
+
+.code-block-pre .token.string {
+  color: #15803d;
+}
+
+.code-block-pre .token.function {
+  color: #2563eb;
+}
+
+.code-block-pre .token.class-name {
+  color: #b45309;
+}
+
+.code-block-pre .token.number,
+.code-block-pre .token.boolean {
+  color: #b45309;
+}
+
+.code-block-pre .token.punctuation {
+  color: var(--text-dim);
+}
+
+.code-block-pre .token.operator,
+.code-block-pre .token.tag {
+  color: #b91c1c;
+}
+
+.code-block-pre .token.attr-name,
+.code-block-pre .token.property {
+  color: #9333ea;
+}

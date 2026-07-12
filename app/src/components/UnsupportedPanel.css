@@ -1,0 +1,8 @@
+.unsupported-panel p {
+  margin: 0 0 0.5rem;
+  color: var(--text-dim);
+}
+
+.unsupported-panel p:last-child {
+  margin-bottom: 0;
+}

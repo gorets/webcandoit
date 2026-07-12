@@ -1,0 +1,26 @@
+{
+  "name": "gorets/webcandoit",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "app",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n app,server -c cyan,magenta \"npm run dev -w app\" \"npm run dev -w server\"",
+    "build": "npm run build -w app && npm run build -w server",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "npm run typecheck -w app && npm run typecheck -w server",
+    "test": "npm run test -w app && npm run test -w server",
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0",
+    "@playwright/test": "^1.61.1",
+    "concurrently": "^9.0.0"
+  }
+}

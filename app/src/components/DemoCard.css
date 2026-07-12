@@ -1,0 +1,131 @@
+.demo-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.15rem;
+  color: var(--text);
+  transition:
+    box-shadow 150ms ease,
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+.demo-card-star {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  display: inline-flex;
+  color: #f59e0b;
+}
+
+.demo-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-soft);
+  transform: translateY(-2px);
+  color: var(--text);
+}
+
+.demo-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.demo-card-body h3 {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.demo-card-favorite .demo-card-body h3 {
+  padding-right: 1.25rem;
+}
+
+.demo-card-new {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  background: var(--accent);
+  color: #fff;
+}
+
+.demo-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.demo-card-description {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.demo-card-badges {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.demo-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--neutral-badge-soft);
+  color: var(--neutral-badge);
+}
+
+.demo-card-badge-supported {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.demo-card-scope {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--neutral-badge-soft);
+  color: var(--neutral-badge);
+}
+
+.demo-card-scope-pwa {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.demo-card-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}

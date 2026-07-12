@@ -1,0 +1,7 @@
+.error-boundary {
+  color: var(--danger);
+}
+
+.error-boundary p {
+  margin: 0 0 0.75rem;
+}

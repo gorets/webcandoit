@@ -1,0 +1,43 @@
+.home {
+  padding: 0 1.5rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.category-section {
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
+  margin-top: 2.5rem;
+}
+
+.category-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.home-empty {
+  color: var(--text-dim);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+@media (max-width: 767px) {
+  .home {
+    padding: 0 1rem 2.5rem;
+  }
+
+  .demo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+}

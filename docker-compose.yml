@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    image: gorobetsva/webcandoit:latest
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:18080:8080'
+    environment:
+      - PORT=8080
+      - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY:-}
+      - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY:-}
+      - PUSH_STORE_PATH=/data/push-subscriptions.json
+    volumes:
+      - push-data:/data
+
+volumes:
+  push-data:
