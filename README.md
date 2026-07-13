@@ -4,6 +4,10 @@ Live demos of what your browser can do today — installable apps, on-device AI,
 access, and everything in between. Own implementation inspired by whatpwacando.today (no code
 shared with it).
 
+## Demo
+
+[WebCanDoIt Live Demo](https://webcandoit.pp.ua/)
+
 ## Development
 
 Requires Node >= 22.

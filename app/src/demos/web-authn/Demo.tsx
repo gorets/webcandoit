@@ -31,7 +31,7 @@ export default function WebAuthnDemo() {
         rp: { name: 'WebCanDoIt' },
         user: {
           id: randomBytes(16),
-          name: 'demo-user@whatpwacando.today',
+          name: 'demo-user@webcandoit.pp.ua',
           displayName: 'Demo User',
         },
         pubKeyCredParams: [

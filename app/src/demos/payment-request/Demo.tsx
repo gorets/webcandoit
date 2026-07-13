@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { describeSuccess } from './format';
+import { GOOGLE_PAY_TEST_METHOD } from './googlePayTest';
 
 export default function PaymentRequestDemo() {
   const [outcome, setOutcome] = useState<string | null>(null);
@@ -10,10 +12,6 @@ export default function PaymentRequestDemo() {
     setOutcome(null);
     setBusy(true);
     try {
-      const methods: PaymentMethodData[] = [
-        { supportedMethods: 'https://example.com/pay' },
-        { supportedMethods: 'basic-card' },
-      ];
       const details: PaymentDetailsInit = {
         total: {
           label: 'WebCanDoIt demo total',
@@ -21,16 +19,12 @@ export default function PaymentRequestDemo() {
         },
       };
 
-      const request = new PaymentRequest(methods, details);
-      const canMakePayment = await request.canMakePayment().catch(() => null);
+      const request = new PaymentRequest([GOOGLE_PAY_TEST_METHOD], details);
+      await request.canMakePayment().catch(() => null);
 
       const response = await request.show();
       await response.complete('success');
-      setOutcome(
-        `Payment completed via "${response.methodName}". canMakePayment reported: ${
-          canMakePayment === null ? 'unknown' : canMakePayment
-        }.`,
-      );
+      setOutcome(describeSuccess(response.methodName, response.details));
     } catch (err) {
       if (err instanceof DOMException && err.name === 'AbortError') {
         setOutcome('Payment sheet was dismissed.');
@@ -41,7 +35,7 @@ export default function PaymentRequestDemo() {
           ? `${err.name}: ${err.message}`
           : 'Payment Request failed.';
       setError(
-        `${detail} — most browsers reject the placeholder payment methods used in this demo, which is expected without a real merchant integration.`,
+        `${detail} — Google Pay isn't available here: try desktop Chrome or Android Chrome with a card saved to your Google account.`,
       );
     } finally {
       setBusy(false);
@@ -51,16 +45,16 @@ export default function PaymentRequestDemo() {
   return (
     <div>
       <p style={{ color: 'var(--text-dim)' }}>
-        This builds a real <code>PaymentRequest</code> for a $1.00 demo total using placeholder
-        payment methods (no real merchant account). Since no real payment handler is registered,
-        most browsers will reject it or show an empty sheet — that failure is caught and explained
-        below, not a crash.
+        This opens a real <code>PaymentRequest</code> using Google Pay's <code>TEST</code>{' '}
+        environment for a $1.00 demo total — no money moves, but the payment sheet and the token it
+        returns are genuine. Needs desktop Chrome or Android Chrome with a card saved to your Google
+        account; other browsers will show the error below instead.
       </p>
       <button type="button" onClick={tryPayment} disabled={busy}>
         {busy ? 'Opening payment sheet…' : 'Try Payment Request'}
       </button>
       {outcome && (
-        <p role="status" style={{ color: 'var(--accent)' }}>
+        <p role="status" style={{ color: 'var(--accent)', whiteSpace: 'pre-wrap' }}>
           {outcome}
         </p>
       )}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const DEFAULT_TEXT = 'Hello from whatpwacando.today! This is the Web Speech Synthesis API.';
+const DEFAULT_TEXT = 'Hello from webcandoit.pp.ua! This is the Web Speech Synthesis API.';
 
 export default function SpeechSynthesisDemo() {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);

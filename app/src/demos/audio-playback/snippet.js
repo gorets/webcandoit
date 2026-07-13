@@ -30,7 +30,7 @@ audio.src = await createToneUrl();
 if ('mediaSession' in navigator) {
   navigator.mediaSession.metadata = new MediaMetadata({
     title: 'Generated Tone',
-    artist: 'whatpwacando.today',
+    artist: 'webcandoit.pp.ua',
     album: 'Media Session demo',
   });
   navigator.mediaSession.setActionHandler('play', () => audio.play());

@@ -109,7 +109,7 @@ export default function AudioPlaybackDemo() {
 
     navigator.mediaSession.metadata = new MediaMetadata({
       title: 'Generated Tone',
-      artist: 'whatpwacando.today',
+      artist: 'webcandoit.pp.ua',
       album: 'Media Session demo',
     });
 

@@ -5,7 +5,7 @@ const meta: DemoMeta = {
   title: 'Payment Request',
   category: 'actions',
   description:
-    'Build a PaymentRequest for a demo total and open the browser payment sheet, safely handling rejection of unknown payment methods.',
+    'Open a real Google Pay TEST-environment payment sheet via PaymentRequest — a genuine payment flow with no money moving.',
   specUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API',
   isSupported: () => typeof window !== 'undefined' && 'PaymentRequest' in window,
   favorite: true,
