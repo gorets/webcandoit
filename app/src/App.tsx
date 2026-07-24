@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { Layout } from './components/Layout';
+import { UpdatePrompt } from './components/UpdatePrompt';
 import { DemoPage } from './pages/DemoPage';
 import { Home } from './pages/Home';
 
@@ -12,6 +13,7 @@ export function App() {
           <Route path="/demo/:slug" element={<DemoPage />} />
         </Route>
       </Routes>
+      <UpdatePrompt />
     </BrowserRouter>
   );
 }

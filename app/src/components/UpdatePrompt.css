@@ -1,0 +1,35 @@
+.update-prompt {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: calc(100vw - 2rem);
+  padding: 0.75rem 1rem;
+  background: var(--text);
+  color: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.update-prompt-text {
+  font-size: 0.9rem;
+}
+
+.update-prompt-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.update-prompt-dismiss {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.update-prompt-dismiss:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
