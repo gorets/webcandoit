@@ -19,24 +19,29 @@ Checks: `npm run lint`, `npm run typecheck`, `npm test`, `npm run e2e`.
 
 ## Publishing a build
 
-Multi-platform builds need a `docker-container` builder (the default `docker` driver
-cannot push amd64+arm64 in one go):
+Multi-platform builds need the `multiarch` builder (`docker-container` driver).
+The default `docker` driver cannot push amd64 and arm64 in one go, and
+`docker buildx build` uses the selected builder unless `--builder` is set.
+`docker buildx create` fails when that builder already exists, so create it only
+the first time.
 
-    docker buildx create --name multiarch --driver docker-container --use
-    docker buildx inspect --bootstrap
+Select it, boot it, then push (`docker login` first if needed):
 
-Then build and push (`docker login` first if needed):
+    docker buildx inspect multiarch >/dev/null 2>&1 \
+      || docker buildx create --name multiarch --driver docker-container
+    docker buildx use multiarch
+    docker buildx inspect multiarch --bootstrap
 
-    docker buildx build --platform linux/amd64,linux/arm64 \
+    docker buildx build --builder multiarch --platform linux/amd64,linux/arm64 \
     -t gorobetsva/webcandoit:latest \
     -t gorobetsva/webcandoit:$(git rev-parse --short HEAD) \
     --push .
 
 ## Deployment (VPS)
 
-The VPS only needs `docker-compose.yml` — not the source tree. The container binds
-to `127.0.0.1:8080` only; an external Nginx (behind Cloudflare) reverse-proxies to it
-and terminates TLS.
+The VPS only needs `docker-compose.yml` — not the source tree. The container listens
+on port 8080 and is published on the host as `127.0.0.1:18080` only; an external Nginx
+(behind Cloudflare) reverse-proxies to it and terminates TLS.
 
     docker compose pull
     docker compose up -d
