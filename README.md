@@ -78,4 +78,4 @@ Add the output to the VPS `.env`:
 
 Then `docker compose up -d` to pick them up. Subscriptions persist in the `push-data` volume
 across redeploys. Without these keys set, the push-notifications demo shows a "not configured"
-message but the rest of the site is unaffected.
+message but the rest of the site is unaffected...
